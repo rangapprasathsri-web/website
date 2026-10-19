@@ -1,0 +1,7 @@
+{
+  "name": "ChloroQuant – Water Quality Screening",
+  "description": "A proposed low-cost, strip-based solution for estimating Free Residual Chlorine (FRC) in water through colorimetric sensing and embedded data processing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
+
