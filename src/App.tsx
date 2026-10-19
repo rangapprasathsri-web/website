@@ -16,7 +16,7 @@ export default function App() {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("chloroquant_theme");
       if (saved) return saved === "dark";
-      // Default is strictly light mode as per requirements
+      // Default is light mode
       return false;
     }
     return false;
@@ -37,16 +37,16 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 selection:bg-teal-500/20 selection:text-teal-900 dark:selection:text-teal-200">
+    <div className="min-h-screen flex flex-col bg-[#FBFAF6] dark:bg-[#07131D] text-[#3C4F5C] dark:text-slate-200 selection:bg-[#5A4BD1]/15 selection:text-[#5A4BD1] dark:selection:text-[#9A86F2]">
       {/* Skip to Content Link for Accessibility */}
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-teal-800 focus:text-white focus:rounded-md focus:shadow-md"
+        className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-50 focus:px-4 focus:py-2 focus:bg-[#0F5C63] focus:text-white focus:rounded-full focus:shadow-md"
       >
         Skip to main content
       </a>
 
-      {/* Sticky Header with 3-Zone Contract and Dark Mode Toggle */}
+      {/* Translucent Blurred Sticky Header */}
       <Header darkMode={darkMode} toggleDarkMode={toggleDarkMode} />
 
       {/* Main Content Area */}
@@ -61,7 +61,7 @@ export default function App() {
         <ContactSection />
       </main>
 
-      {/* Footer with Mandatory Dual Disclaimer */}
+      {/* Footer in #0E2230 */}
       <Footer />
 
       {/* Floating Back to Top Button */}

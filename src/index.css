@@ -4,21 +4,31 @@
 
 @layer base {
   :root {
-    --primary-navy: #0a2540;
-    --primary-teal: #0d4a58;
-    --tmb-pale: #f0fdf4;
-    --tmb-cyan: #38bdf8;
-    --tmb-blue: #2563eb;
-    --tmb-violet: #4338ca;
-    --chlorine-accent: #84cc16;
-    --pending-amber: #d97706;
-    --pending-bg: #fffbeb;
-    --pending-border: #fde68a;
+    --bg-main: #FBFAF6;
+    --bg-alt: #EEF4F3;
+    --bg-card: #FFFFFF;
+    --color-ink: #0E2230;
+    --color-body: #3C4F5C;
+    --primary-teal: #0F5C63;
+    --gradient-sig-start: #5A4BD1;
+    --gradient-sig-end: #9A86F2;
+    --color-lime: #C8D96A;
+    --color-amber: #B7791F;
+    --bg-amber: #FBF1DC;
+    --color-footer: #0E2230;
   }
 
   html {
-    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    scroll-padding-top: 5rem;
+    font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    color: var(--color-body);
+    background-color: var(--bg-main);
+    scroll-padding-top: 5.5rem;
+  }
+
+  h1, h2, h3, h4, .font-heading {
+    font-family: 'Fraunces', Georgia, serif;
+    letter-spacing: -0.025em;
+    color: var(--color-ink);
   }
 
   code, kbd, samp, pre, .font-mono {
@@ -62,22 +72,22 @@
   }
 }
 
-@keyframes stripColorShift {
-  0%, 35% {
-    fill: #f8fafc;
-    stroke: #cbd5e1;
+@keyframes stripSignatureShift {
+  0%, 30% {
+    fill: #ffffff;
+    stroke: #dbe4ea;
   }
   50% {
-    fill: #bae6fd;
-    stroke: #7dd3fc;
+    fill: #c4b5fd;
+    stroke: #9a86f2;
   }
-  70% {
-    fill: #60a5fa;
-    stroke: #3b82f6;
+  75% {
+    fill: #7c68ee;
+    stroke: #5a4bd1;
   }
-  85%, 100% {
-    fill: #4338ca;
-    stroke: #3730a3;
+  90%, 100% {
+    fill: #5a4bd1;
+    stroke: #4338ca;
   }
 }
 
@@ -91,11 +101,11 @@
     opacity: 0.8;
   }
   80% {
-    r: 22;
+    r: 24;
     opacity: 0;
   }
   100% {
-    r: 22;
+    r: 24;
     opacity: 0;
   }
 }
@@ -105,11 +115,37 @@
 }
 
 .animate-strip-reaction {
-  animation: stripColorShift 4.5s ease-in-out infinite;
+  animation: stripSignatureShift 4.5s ease-in-out infinite;
 }
 
 .animate-ripple {
   animation: rippleSpread 4.5s ease-out infinite;
+}
+
+/* Editorial Card & Hover Utility Classes */
+.editorial-card {
+  background-color: var(--bg-card);
+  border-radius: 18px;
+  border: 1px solid rgba(14, 34, 48, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(14, 34, 48, 0.04), 0 2px 6px -1px rgba(14, 34, 48, 0.02);
+  transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.2s ease;
+}
+
+.editorial-card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px -3px rgba(14, 34, 48, 0.08), 0 4px 10px -2px rgba(14, 34, 48, 0.04);
+  border-color: rgba(15, 92, 99, 0.25);
+}
+
+.dark .editorial-card {
+  background-color: #0b1924;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.3);
+}
+
+.dark .editorial-card-hover:hover {
+  border-color: rgba(90, 75, 209, 0.4);
+  box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.5);
 }
 
 /* Print Stylesheet */
@@ -130,10 +166,5 @@
     page-break-inside: avoid;
     padding-top: 1.5rem !important;
     padding-bottom: 1.5rem !important;
-  }
-
-  .shadow-sm, .shadow-md, .shadow-lg, .shadow-xl {
-    box-shadow: none !important;
-    border: 1px solid #e2e8f0 !important;
   }
 }

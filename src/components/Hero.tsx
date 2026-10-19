@@ -1,5 +1,5 @@
 import React from "react";
-import { ArrowDown, Mail, Cpu, Sparkles } from "lucide-react";
+import { ArrowDown, Mail, Cpu } from "lucide-react";
 import { SITE_CONFIG } from "../config/siteConfig";
 
 export const Hero: React.FC = () => {
@@ -14,41 +14,45 @@ export const Hero: React.FC = () => {
     <section
       id="home"
       aria-label="Hero Overview"
-      className="relative pt-12 pb-16 md:pt-20 md:pb-24 overflow-hidden border-b border-slate-200 dark:border-slate-800 bg-linear-to-b from-teal-50/40 via-white to-slate-50 dark:from-slate-900/60 dark:via-slate-950 dark:to-slate-950"
+      className="relative pt-12 pb-18 md:pt-20 md:pb-28 overflow-hidden bg-[#FBFAF6] dark:bg-[#07131D]"
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          {/* Left Column: Copy & CTAs */}
+          {/* Left Column: Editorial Copy & Pill CTAs */}
           <div className="lg:col-span-7 space-y-6">
-            {/* Hackathon Badge */}
-            <div className="inline-flex items-center px-3 py-1.5 rounded-md bg-amber-50 dark:bg-amber-950/40 border border-amber-200/80 dark:border-amber-800/60 text-xs font-medium text-amber-900 dark:text-amber-300">
+            {/* Hackathon Badge: Amber #B7791F on #FBF1DC pill */}
+            <div className="inline-flex items-center px-3.5 py-1.5 rounded-full bg-[#FBF1DC] dark:bg-[#2a2214] border border-[#B7791F]/30 text-xs font-mono font-semibold text-[#B7791F] dark:text-[#f3c270]">
               <span>{SITE_CONFIG.badge}</span>
             </div>
 
-            {/* Eyebrow */}
-            <div className="text-xs sm:text-sm font-bold tracking-widest text-teal-800 dark:text-teal-400 uppercase font-mono">
+            {/* Eyebrow in JetBrains Mono */}
+            <div className="text-xs sm:text-sm font-bold tracking-widest text-[#0F5C63] dark:text-teal-400 uppercase font-mono">
               {SITE_CONFIG.eyebrow}
             </div>
 
-            {/* H1 Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-white text-balance leading-tight">
-              {SITE_CONFIG.headline}
+            {/* H1 Headline with Fraunces 700, tight letter-spacing, and signature gradient italic accent word */}
+            <h1 className="font-heading text-4xl sm:text-5xl lg:text-6xl font-bold tracking-[-0.03em] text-[#0E2230] dark:text-white leading-[1.12]">
+              Detect.{" "}
+              <span className="bg-linear-to-r from-[#5A4BD1] to-[#9A86F2] bg-clip-text text-transparent italic font-serif">
+                Quantify.
+              </span>{" "}
+              Protect.
             </h1>
 
-            {/* Subheadline */}
-            <p className="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+            {/* Subheadline in Manrope */}
+            <p className="text-base sm:text-lg text-[#3C4F5C] dark:text-slate-300 leading-relaxed max-w-2xl font-normal">
               {SITE_CONFIG.subheadline}
             </p>
 
-            {/* Chips */}
-            <div className="flex flex-wrap items-center gap-2 pt-1 text-xs sm:text-sm font-medium text-slate-700 dark:text-slate-300">
+            {/* Chips rendered as clean unboxed text with subtle separators */}
+            <div className="flex flex-wrap items-center gap-2 pt-1 text-xs sm:text-sm font-medium text-[#3C4F5C] dark:text-slate-300">
               {SITE_CONFIG.chips.map((chip, index) => (
                 <React.Fragment key={chip}>
-                  <span className="inline-flex items-center px-2.5 py-1 rounded-md bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 shadow-2xs">
+                  <span className="inline-flex items-center px-3 py-1 rounded-full bg-white dark:bg-[#0E2230] border border-[#0E2230]/8 dark:border-white/10 shadow-2xs">
                     {chip}
                   </span>
                   {index < SITE_CONFIG.chips.length - 1 && (
-                    <span className="text-slate-400 dark:text-slate-600 select-none" aria-hidden="true">
+                    <span className="text-[#0E2230]/30 dark:text-white/30 select-none" aria-hidden="true">
                       •
                     </span>
                   )}
@@ -56,12 +60,12 @@ export const Hero: React.FC = () => {
               ))}
             </div>
 
-            {/* CTAs */}
+            {/* Pill CTAs with subtle hover lift */}
             <div className="flex flex-wrap items-center gap-4 pt-4">
               <button
                 type="button"
                 onClick={() => scrollToSection("how-it-works")}
-                className="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold text-white bg-teal-800 hover:bg-teal-900 dark:bg-teal-700 dark:hover:bg-teal-600 rounded-lg shadow-sm transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600"
+                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-[#0F5C63] hover:bg-[#0c4a4f] rounded-full shadow-xs hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0F5C63]"
               >
                 <span>See how it works</span>
                 <ArrowDown className="w-4 h-4" />
@@ -70,24 +74,24 @@ export const Hero: React.FC = () => {
               <button
                 type="button"
                 onClick={() => scrollToSection("contact")}
-                className="inline-flex items-center gap-2 px-5 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700 rounded-lg shadow-2xs transition-all focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-teal-600"
+                className="inline-flex items-center gap-2 px-6 py-3.5 text-sm font-semibold text-[#0E2230] dark:text-slate-100 bg-white dark:bg-[#0E2230] hover:bg-[#EEF4F3] dark:hover:bg-slate-800 border border-[#0E2230]/10 dark:border-white/10 rounded-full shadow-2xs hover:-translate-y-0.5 hover:shadow-md transition-all duration-200 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-[#0F5C63]"
               >
-                <Mail className="w-4 h-4" />
+                <Mail className="w-4 h-4 text-[#0F5C63] dark:text-teal-400" />
                 <span>Get in touch</span>
               </button>
             </div>
           </div>
 
-          {/* Right Column: Pure CSS/SVG Animated Test Strip Visual */}
+          {/* Right Column: 18px Rounded Card with Soft Layered Shadow & Signature Gradient Animation */}
           <div className="lg:col-span-5 flex flex-col items-center">
-            <div className="w-full max-w-md bg-white dark:bg-slate-900 rounded-2xl border border-slate-200 dark:border-slate-800 p-6 shadow-sm relative overflow-hidden">
-              {/* Header Label */}
-              <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-800 text-xs font-mono text-slate-500 dark:text-slate-400">
-                <span className="font-semibold text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                  <Cpu className="w-3.5 h-3.5 text-teal-600 dark:text-teal-400" />
+            <div className="w-full max-w-md editorial-card p-6 sm:p-7 relative overflow-hidden">
+              {/* Header Label in JetBrains Mono */}
+              <div className="flex items-center justify-between pb-4 border-b border-[#0E2230]/6 dark:border-white/8 text-xs font-mono text-[#3C4F5C] dark:text-slate-400">
+                <span className="font-semibold text-[#0E2230] dark:text-slate-200 flex items-center gap-1.5">
+                  <Cpu className="w-3.5 h-3.5 text-[#0F5C63] dark:text-teal-400" />
                   OPTICAL SENSING CELL
                 </span>
-                <span className="text-[11px] px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+                <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-[#EEF4F3] dark:bg-slate-800 text-[#0F5C63] dark:text-teal-300 font-semibold">
                   ESP32 + TCS34725
                 </span>
               </div>
@@ -104,46 +108,52 @@ export const Hero: React.FC = () => {
                     {/* Controlled White LED Light Cone */}
                     <linearGradient id="ledBeam" x1="0%" y1="0%" x2="0%" y2="100%">
                       <stop offset="0%" stopColor="#ffffff" stopOpacity="0.8" />
-                      <stop offset="30%" stopColor="#fef08a" stopOpacity="0.25" />
-                      <stop offset="100%" stopColor="#38bdf8" stopOpacity="0.05" />
+                      <stop offset="35%" stopColor="#fef08a" stopOpacity="0.2" />
+                      <stop offset="100%" stopColor="#9a86f2" stopOpacity="0.04" />
                     </linearGradient>
 
                     {/* Sensor Field of View */}
                     <linearGradient id="sensorFov" x1="0%" y1="0%" x2="0%" y2="100%">
-                      <stop offset="0%" stopColor="#0284c7" stopOpacity="0.3" />
-                      <stop offset="100%" stopColor="#0284c7" stopOpacity="0.05" />
+                      <stop offset="0%" stopColor="#5a4bd1" stopOpacity="0.25" />
+                      <stop offset="100%" stopColor="#9a86f2" stopOpacity="0.04" />
+                    </linearGradient>
+
+                    {/* Signature Droplet Gradient */}
+                    <linearGradient id="dropletGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#9A86F2" />
+                      <stop offset="100%" stopColor="#5A4BD1" />
                     </linearGradient>
                   </defs>
 
-                  {/* Optical Enclosure Housing Reference (Subtle Dashed) */}
+                  {/* Optical Enclosure Housing Reference (Subtle Dashed Hairline) */}
                   <rect
                     x="20"
                     y="15"
                     width="280"
                     height="250"
-                    rx="12"
+                    rx="16"
                     fill="none"
-                    stroke="#94a3b8"
+                    stroke="#0E2230"
                     strokeWidth="1"
                     strokeDasharray="4 4"
-                    strokeOpacity="0.4"
+                    strokeOpacity="0.15"
                   />
 
                   {/* Top Optical Unit: White LED Module & TCS34725 Sensor */}
                   {/* White LED Emitter */}
                   <g transform="translate(100, 25)">
-                    <rect x="0" y="0" width="34" height="18" rx="3" fill="#e2e8f0" stroke="#94a3b8" strokeWidth="1" />
+                    <rect x="0" y="0" width="34" height="18" rx="4" fill="#f1f5f9" stroke="#cbd5e1" strokeWidth="1" />
                     <circle cx="17" cy="18" r="4.5" fill="#fef08a" stroke="#ca8a04" strokeWidth="1" />
-                    <text x="17" y="-5" textAnchor="middle" fontSize="9" fontFamily="monospace" fill="#64748b">
+                    <text x="17" y="-5" textAnchor="middle" fontSize="9" fontFamily="JetBrains Mono" fill="#3C4F5C">
                       WHITE LED
                     </text>
                   </g>
 
                   {/* TCS34725 Color Sensor Header */}
                   <g transform="translate(170, 25)">
-                    <rect x="0" y="0" width="50" height="18" rx="3" fill="#0f172a" stroke="#334155" strokeWidth="1" />
-                    <rect x="18" y="14" width="14" height="6" rx="1.5" fill="#0284c7" />
-                    <text x="25" y="-5" textAnchor="middle" fontSize="9" fontFamily="monospace" fill="#0284c7">
+                    <rect x="0" y="0" width="50" height="18" rx="4" fill="#0E2230" stroke="#1e3a4e" strokeWidth="1" />
+                    <rect x="18" y="14" width="14" height="6" rx="2" fill="#5A4BD1" />
+                    <text x="25" y="-5" textAnchor="middle" fontSize="9" fontFamily="JetBrains Mono" fill="#5A4BD1" fontWeight="bold">
                       TCS34725
                     </text>
                   </g>
@@ -152,24 +162,24 @@ export const Hero: React.FC = () => {
                   <polygon points="117,45 70,175 160,175" fill="url(#ledBeam)" />
                   <polygon points="195,45 140,175 230,175" fill="url(#sensorFov)" />
 
-                  {/* Water Droplet (Animated) */}
+                  {/* Water Droplet (Animated with Signature Gradient) */}
                   <g className="animate-droplet">
                     <path
                       d="M160 50 C160 50 154 62 154 67 C154 70.3 156.7 73 160 73 C163.3 73 166 70.3 166 67 C166 62 160 50 160 50 Z"
-                      fill="#38bdf8"
-                      stroke="#0284c7"
+                      fill="url(#dropletGradient)"
+                      stroke="#5A4BD1"
                       strokeWidth="1"
                     />
-                    <circle cx="158.5" cy="65" r="1.5" fill="#ffffff" opacity="0.7" />
+                    <circle cx="158.5" cy="65" r="1.5" fill="#ffffff" opacity="0.8" />
                   </g>
 
-                  {/* Concentric Reaction Ripple (Animated) */}
+                  {/* Concentric Reaction Ripple (Animated with Signature Purple) */}
                   <circle
                     cx="160"
                     cy="185"
                     r="0"
                     fill="none"
-                    stroke="#38bdf8"
+                    stroke="#9A86F2"
                     strokeWidth="1.5"
                     className="animate-ripple"
                   />
@@ -182,9 +192,9 @@ export const Hero: React.FC = () => {
                       y="0"
                       width="230"
                       height="20"
-                      rx="3"
-                      fill="#f1f5f9"
-                      stroke="#cbd5e1"
+                      rx="4"
+                      fill="#ffffff"
+                      stroke="#dbe4ea"
                       strokeWidth="1.2"
                     />
 
@@ -196,50 +206,50 @@ export const Hero: React.FC = () => {
                     <line x1="180" y1="0" x2="180" y2="6" stroke="#94a3b8" strokeWidth="0.8" />
                     <line x1="200" y1="0" x2="200" y2="6" stroke="#94a3b8" strokeWidth="0.8" />
 
-                    {/* TMB Reagent Reaction Pad (Animated color shift) */}
+                    {/* TMB Reagent Reaction Pad (Animated signature gradient shift from clear to #5A4BD1) */}
                     <rect
                       x="95"
                       y="2"
                       width="40"
                       height="16"
-                      rx="2"
+                      rx="3"
                       className="animate-strip-reaction"
                       strokeWidth="1.2"
                     />
 
                     {/* Pad Reflection Highlight */}
-                    <line x1="97" y1="4" x2="133" y2="4" stroke="#ffffff" strokeWidth="1" strokeOpacity="0.4" />
+                    <line x1="97" y1="4" x2="133" y2="4" stroke="#ffffff" strokeWidth="1" strokeOpacity="0.5" />
                   </g>
 
                   {/* Technical Sensor Beam Annotations */}
-                  <path d="M117 48 L150 176" stroke="#eab308" strokeWidth="1" strokeDasharray="2 2" strokeOpacity="0.6" />
-                  <path d="M165 176 L195 48" stroke="#38bdf8" strokeWidth="1" strokeDasharray="2 2" strokeOpacity="0.6" />
+                  <path d="M117 48 L150 176" stroke="#C8D96A" strokeWidth="1.2" strokeDasharray="2 2" strokeOpacity="0.8" />
+                  <path d="M165 176 L195 48" stroke="#9A86F2" strokeWidth="1.2" strokeDasharray="2 2" strokeOpacity="0.8" />
 
                   {/* Microcontroller I2C Data Stream (ESP32 connection line) */}
                   <g transform="translate(160, 225)">
-                    <rect x="-70" y="0" width="140" height="24" rx="4" fill="#0f172a" />
+                    <rect x="-70" y="0" width="140" height="24" rx="12" fill="#0E2230" />
                     <text
                       x="0"
                       y="15"
                       textAnchor="middle"
                       fontSize="10"
-                      fontFamily="monospace"
-                      fill="#38bdf8"
+                      fontFamily="JetBrains Mono"
+                      fill="#9A86F2"
                       fontWeight="bold"
                     >
                       ESP32 I²C BUS
                     </text>
                   </g>
-                  <path d="M195 43 L265 43 L265 237 L230 237" fill="none" stroke="#64748b" strokeWidth="1" strokeDasharray="3 3" />
+                  <path d="M195 43 L265 43 L265 237 L230 237" fill="none" stroke="#0E2230" strokeOpacity="0.25" strokeWidth="1" strokeDasharray="3 3" />
                 </svg>
               </div>
 
-              {/* Mandatory Illustrative Label (Section 2, Rule 7) */}
-              <div className="pt-3 border-t border-slate-100 dark:border-slate-800 text-center">
-                <span className="inline-block text-[11px] font-mono text-amber-700 dark:text-amber-400 bg-amber-50/80 dark:bg-amber-950/40 px-2.5 py-1 rounded border border-amber-200/60 dark:border-amber-800/60">
+              {/* Illustrative Label (Section 2, Rule 7) in Amber #B7791F on #FBF1DC pill */}
+              <div className="pt-3 border-t border-[#0E2230]/6 dark:border-white/8 text-center">
+                <span className="inline-block text-[11px] font-mono font-medium text-[#B7791F] dark:text-[#f3c270] bg-[#FBF1DC] dark:bg-[#2a2214] px-3 py-1 rounded-full border border-[#B7791F]/30">
                   {SITE_CONFIG.illustrativeLabel}
                 </span>
-                <p className="text-[11px] text-slate-500 dark:text-slate-400 mt-1.5">
+                <p className="text-[11px] text-[#3C4F5C] dark:text-slate-400 mt-2">
                   Color shift illustrates proposed TMB reagent oxidation upon sample contact.
                 </p>
               </div>
